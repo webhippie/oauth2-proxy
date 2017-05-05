@@ -37,7 +37,7 @@ pipeline:
   docker:
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
-    repo: tboerger/ldap-proxy
+    repo: tboerger/oauth2-proxy
     tags: [ '${DRONE_TAG##v}' ]
     when:
       event: [ tag ]
@@ -46,7 +46,7 @@ pipeline:
   docker:
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
-    repo: tboerger/ldap-proxy
+    repo: tboerger/oauth2-proxy
     tags: [ '${DRONE_BRANCH##release/v}' ]
     when:
       event: [ push ]
@@ -55,7 +55,7 @@ pipeline:
   docker:
     image: plugins/docker
     secrets: [ docker_username, docker_password ]
-    repo: tboerger/ldap-proxy
+    repo: tboerger/oauth2-proxy
     tags: [ 'latest' ]
     when:
       event: [ push ]
@@ -75,7 +75,7 @@ pipeline:
     image: plugins/s3
     secrets: [ s3_endpoint, aws_access_key_id, aws_secret_access_key, s3_bucket ]
     source: dist/release/*
-    target: /misc/ldap-proxy/${DRONE_TAG##v}
+    target: /misc/oauth2-proxy/${DRONE_TAG##v}
     strip_prefix: dist/release/
     path_style: true
     when:
@@ -86,7 +86,7 @@ pipeline:
     image: plugins/s3
     secrets: [ s3_endpoint, aws_access_key_id, aws_secret_access_key, s3_bucket ]
     source: dist/release/*
-    target: /misc/ldap-proxy/${DRONE_TAG##release/v}
+    target: /misc/oauth2-proxy/${DRONE_TAG##release/v}
     strip_prefix: dist/release/
     path_style: true
     when:
@@ -97,7 +97,7 @@ pipeline:
     image: plugins/s3
     secrets: [ s3_endpoint, aws_access_key_id, aws_secret_access_key, s3_bucket ]
     source: dist/release/*
-    target: /misc/ldap-proxy/master
+    target: /misc/oauth2-proxy/master
     strip_prefix: dist/release/
     path_style: true
     when:
