@@ -5,9 +5,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/joho/godotenv"
-	"github.com/webhippie/oauth2-proxy/config"
+	"github.com/webhippie/oauth2-proxy/pkg/config"
 	"gopkg.in/urfave/cli.v2"
 )
 
@@ -42,14 +41,6 @@ func main() {
 		},
 
 		Before: func(c *cli.Context) error {
-			logrus.SetOutput(os.Stdout)
-
-			if config.Debug {
-				logrus.SetLevel(logrus.DebugLevel)
-			} else {
-				logrus.SetLevel(logrus.InfoLevel)
-			}
-
 			return nil
 		},
 

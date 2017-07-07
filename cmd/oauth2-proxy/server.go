@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/Sirupsen/logrus"
-	"github.com/webhippie/oauth2-proxy/config"
-	"github.com/webhippie/oauth2-proxy/router"
+	"github.com/webhippie/oauth2-proxy/pkg/config"
+	"github.com/webhippie/oauth2-proxy/pkg/router"
 	"gopkg.in/urfave/cli.v2"
 )
 
@@ -27,9 +27,17 @@ func Server() *cli.Command {
 			},
 			&cli.BoolFlag{
 				Name:        "pprof",
+				Value:       false,
 				Usage:       "Enable pprof debugging server",
 				EnvVars:     []string{"OAUTH2_PROXY_PPROF"},
 				Destination: &config.Server.Pprof,
+			},
+			&cli.BoolFlag{
+				Name:        "prometheus",
+				Value:       false,
+				Usage:       "Enable prometheus exporter",
+				EnvVars:     []string{"OATUH2_PROXY_PROMETHEUS"},
+				Destination: &config.Server.Prometheus,
 			},
 			&cli.StringFlag{
 				Name:        "cert",
@@ -60,6 +68,13 @@ func Server() *cli.Command {
 				Destination: &config.Server.Assets,
 			},
 			&cli.StringFlag{
+				Name:        "title",
+				Value:       "OAuth2 Proxy",
+				Usage:       "Title displayed on the login",
+				EnvVars:     []string{"OAUTH2_PROXY_TITLE"},
+				Destination: &config.Server.Title,
+			},
+			&cli.StringFlag{
 				Name:        "endpoint",
 				Value:       "",
 				Usage:       "Endpoint to proxy requests to",
@@ -70,7 +85,7 @@ func Server() *cli.Command {
 				Name:        "oauth2-github",
 				Value:       false,
 				Usage:       "Enable GitHub provider",
-				EnvVars:     []string{"OAUTH2_PROXY_GITHUB_ENABLED"},
+				EnvVars:     []string{"OAUTH2_PROXY_GITHUB"},
 				Destination: &config.GitHub.Enabled,
 			},
 			&cli.StringSliceFlag{
@@ -111,7 +126,7 @@ func Server() *cli.Command {
 				Name:        "oauth2-gitlab",
 				Value:       false,
 				Usage:       "Enable Gitlab provider",
-				EnvVars:     []string{"OAUTH2_PROXY_GITLAB_ENABLED"},
+				EnvVars:     []string{"OAUTH2_PROXY_GITLAB"},
 				Destination: &config.Gitlab.Enabled,
 			},
 			&cli.StringSliceFlag{
@@ -152,7 +167,7 @@ func Server() *cli.Command {
 				Name:        "oauth2-bitbucket",
 				Value:       false,
 				Usage:       "Enable Bitbucket provider",
-				EnvVars:     []string{"OAUTH2_PROXY_BITBUCKET_ENABLED"},
+				EnvVars:     []string{"OAUTH2_PROXY_BITBUCKET"},
 				Destination: &config.Bitbucket.Enabled,
 			},
 			&cli.StringSliceFlag{
