@@ -7,6 +7,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/webhippie/oauth2-proxy/pkg/config"
+	"github.com/webhippie/oauth2-proxy/pkg/version"
 	"gopkg.in/urfave/cli.v2"
 )
 
@@ -19,7 +20,7 @@ func main() {
 
 	app := &cli.App{
 		Name:     "oauth2-proxy",
-		Version:  config.Version,
+		Version:  version.Version.String(),
 		Usage:    "Proxy for authentication via OAuth2",
 		Compiled: time.Now(),
 
