@@ -1,8 +1,13 @@
 FROM webhippie/alpine:latest
 MAINTAINER Thomas Boerger <thomas@webhippie.de>
 
-EXPOSE 8080
+EXPOSE 8080 80 443
 VOLUME ["/var/lib/oauth2-proxy"]
+
+LABEL org.label-schema.version=latest
+LABEL org.label-schema.name="OAuth2 Proxy"
+LABEL org.label-schema.vendor="Thomas Boerger"
+LABEL org.label-schema.schema-version="1.0"
 
 RUN apk update && \
   apk add \
@@ -18,22 +23,18 @@ RUN apk update && \
     -s /bin/bash \
     -G oauth2-proxy \
     -u 1000 \
-    oauth2-proxy
+    oauth2-proxy && \
+  mkdir -p \
+    /usr/share/oauth2-proxy
 
+ENV OAUTH2_PROXY_SERVER_STORAGE /var/lib/oauth2-proxy
+ENV OAUTH2_PROXY_SERVER_TEMPLATES /usr/share/oauth2-proxy/templates
+ENV OAUTH2_PROXY_SERVER_ASSETS /usr/share/oauth2-proxy/assets
+
+COPY assets /usr/share/oauth2-proxy/
+COPY templates /usr/share/oauth2-proxy/
 COPY oauth2-proxy /usr/bin/
 
 USER oauth2-proxy
 ENTRYPOINT ["/usr/bin/oauth2-proxy"]
 CMD ["server"]
-
-# ARG VERSION
-# ARG BUILD_DATE
-# ARG VCS_REF
-
-# LABEL org.label-schema.version=$VERSION
-# LABEL org.label-schema.build-date=$BUILD_DATE
-# LABEL org.label-schema.vcs-ref=$VCS_REF
-LABEL org.label-schema.vcs-url="https://github.com/webhippie/oauth2-proxy.git"
-LABEL org.label-schema.name="OAuth2 Proxy"
-LABEL org.label-schema.vendor="Thomas Boerger"
-LABEL org.label-schema.schema-version="1.0"
