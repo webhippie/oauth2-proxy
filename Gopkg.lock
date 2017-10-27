@@ -2,22 +2,16 @@
 
 
 [[projects]]
-  name = "github.com/Sirupsen/logrus"
-  packages = ["."]
-  revision = "f006c2ac4710855cf0f916dd6b77acf6b048dc6e"
-  version = "v1.0.3"
-
-[[projects]]
-  name = "github.com/Unknwon/com"
-  packages = ["."]
-  revision = "28b053d5a2923b87ce8c5a08f3af779894a72758"
-  version = "v1"
-
-[[projects]]
   branch = "master"
   name = "github.com/beorn7/perks"
   packages = ["quantile"]
   revision = "4c0e84591b9aa9e6dcfdf3e020114cd81f89d5f9"
+
+[[projects]]
+  branch = "develop"
+  name = "github.com/codehack/fail"
+  packages = ["."]
+  revision = "bdeb8b2dea4488451d62b997d805085443c594e7"
 
 [[projects]]
   name = "github.com/coreos/go-semver"
@@ -32,34 +26,28 @@
   version = "v3.3.0"
 
 [[projects]]
+  name = "github.com/go-kit/kit"
+  packages = ["log","log/level"]
+  revision = "4dc7be5d2d12881735283bcab7352178e190fc71"
+  version = "v0.6.0"
+
+[[projects]]
+  name = "github.com/go-logfmt/logfmt"
+  packages = ["."]
+  revision = "390ab7935ee28ec6b286364bba9b4dd6410cb3d5"
+  version = "v0.3.0"
+
+[[projects]]
+  name = "github.com/go-stack/stack"
+  packages = ["."]
+  revision = "817915b46b97fd7bb80e8ab6b69f01a53ac3eebf"
+  version = "v1.6.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/golang/protobuf"
   packages = ["proto"]
   revision = "1643683e1b54a9e88ad26d98f81400c8c9d9f4f9"
-
-[[projects]]
-  name = "github.com/gorilla/context"
-  packages = ["."]
-  revision = "1ea25387ff6f684839d82767c1733ff4d4d15d0a"
-  version = "v1.1"
-
-[[projects]]
-  name = "github.com/gorilla/mux"
-  packages = ["."]
-  revision = "24fca303ac6da784b9e8269f724ddeb0b2eea5e7"
-  version = "v1.5.0"
-
-[[projects]]
-  name = "github.com/gorilla/securecookie"
-  packages = ["."]
-  revision = "667fe4e3466a040b780561fe9b51a83a3753eefc"
-  version = "v1.1"
-
-[[projects]]
-  name = "github.com/gorilla/sessions"
-  packages = ["."]
-  revision = "ca9ada44574153444b00d3fd9c8559e4cc95f896"
-  version = "v1.1"
 
 [[projects]]
   name = "github.com/joho/godotenv"
@@ -68,10 +56,10 @@
   version = "v1.2.0"
 
 [[projects]]
-  name = "github.com/markbates/goth"
-  packages = [".","gothic"]
-  revision = "86ca064cf1b7ebefa670bdc9eaadba0f3a6d9607"
-  version = "v1.43.0"
+  branch = "master"
+  name = "github.com/kr/logfmt"
+  packages = ["."]
+  revision = "b84e30acd515aadc4b783ad4ff83aff3299bdfe0"
 
 [[projects]]
   name = "github.com/matttproud/golang_protobuf_extensions"
@@ -111,39 +99,15 @@
 
 [[projects]]
   branch = "master"
-  name = "github.com/unrolled/render"
-  packages = ["."]
-  revision = "32bf1ea2a39e4e796d9040b5cf235258cee978c1"
-
-[[projects]]
-  branch = "master"
   name = "golang.org/x/crypto"
-  packages = ["ssh/terminal"]
+  packages = ["acme","acme/autocert"]
   revision = "2509b142fb2b797aa7587dad548f113b2c0f20ce"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/net"
-  packages = ["context","context/ctxhttp","webdav","webdav/internal/xml"]
-  revision = "4b14673ba32bee7f5ac0f990a48f033919fd418b"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/oauth2"
-  packages = [".","internal"]
-  revision = "bb50c06baba3d0c76f9d125c0719093e315b5b44"
-
-[[projects]]
-  branch = "master"
-  name = "golang.org/x/sys"
-  packages = ["unix","windows"]
-  revision = "3e3646d2c706c21b222a5dbcaa6db12b3e0cc765"
-
-[[projects]]
-  name = "google.golang.org/appengine"
-  packages = ["internal","internal/base","internal/datastore","internal/log","internal/remote_api","internal/urlfetch","urlfetch"]
-  revision = "150dc57a1b433e64154302bdc40b6bb8aefa313a"
-  version = "v1.0.0"
+  packages = ["context","webdav","webdav/internal/xml"]
+  revision = "7b572d500b0702f1ea30a47083ce2e1e5c61edba"
 
 [[projects]]
   branch = "v2"
@@ -154,6 +118,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "da46b161c7f720b456a2961f1cead256c430e9ef61e63bd911f2e06c5a1343f9"
+  inputs-digest = "9bf23d95b64ef8a9dc7c7108a8ce97e23afba10972719d9a02d8babf0b0540bc"
   solver-name = "gps-cdcl"
   solver-version = 1
