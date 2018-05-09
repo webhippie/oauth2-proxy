@@ -51,7 +51,6 @@ func Load(cfg *config.Config, proxy http.Handler) http.Handler {
 	mux.Route(cfg.Server.Root, func(root chi.Router) {
 		root.Get("/login", handler.Login(cfg))
 		root.Post("/login", handler.Auth(cfg))
-		root.Get("/{provider}", handler.Provider(cfg))
 
 		root.Handle("/assets/*", handler.Static(cfg))
 	})

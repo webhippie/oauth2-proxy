@@ -1,4 +1,7 @@
-FROM webhippie/alpine:latest
+FROM webhippie/alpine:latest AS build
+RUN apk add --no-cache ca-certificates mailcap
+
+FROM scratch
 
 LABEL maintainer="Thomas Boerger <thomas@webhippie.de>" \
   org.label-schema.name="OAuth2 Proxy" \
@@ -16,8 +19,9 @@ ENV OAUTH2_PROXY_SERVER_ASSETS /usr/share/oauth2-proxy/assets
 ENTRYPOINT ["/usr/bin/oauth2-proxy"]
 CMD ["server"]
 
-RUN apk add --no-cache ca-certificates mailcap bash
+COPY --from=build /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+COPY --from=build /etc/mime.types /etc/
 
 COPY assets /usr/share/oauth2-proxy/
 COPY templates /usr/share/oauth2-proxy/
-COPY dist/binaries/terrastate-*-linux-amd64 /usr/bin/terrastate
+COPY dist/binaries/oauth2-proxy-*-linux-386 /usr/bin/oauth2-proxy

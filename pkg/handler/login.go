@@ -11,7 +11,7 @@ import (
 
 // Login displays the login form for authentication.
 func Login(cfg *config.Config) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 		vars := map[string]string{
 			"Title": cfg.Proxy.Title,
 			"Root":  cfg.Server.Root,

@@ -1,0 +1,15 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "OAuth2 Proxy"
+
+[blackfriday]
+  angledQuotes = true
+  fractions = false
+  plainIDAnchors = true
+  smartlists = true
+  extensions = ["hardLineBreak"]
+
+[params]
+  author = "Thomas Boerger"
+  description = "Proxy for authentication via OAuth2"
+  keywords = "proxy, oauth2, authentication"

@@ -9,7 +9,7 @@ import (
 
 // Auth handles the callback from the OAuth2 provider.
 func Auth(cfg *config.Config) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
 		http.Redirect(
 			w,
 			r,
