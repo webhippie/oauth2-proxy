@@ -2,7 +2,7 @@
 
 [![Build Status](http://github.dronehippie.de/api/badges/webhippie/oauth2-proxy/status.svg)](http://github.dronehippie.de/webhippie/oauth2-proxy)
 [![Stories in Ready](https://badge.waffle.io/webhippie/oauth2-proxy.svg?label=ready&title=Ready)](http://waffle.io/webhippie/oauth2-proxy)
-[![Join the Matrix chat at https://matrix.to/#/#webhippie:matrix.org](https://img.shields.io/badge/matrix-%23gomematic%3Amatrix.org-7bc9a4.svg)](https://matrix.to/#/#webhippie:matrix.org)
+[![Join the Matrix chat at https://matrix.to/#/#webhippie:matrix.org](https://img.shields.io/badge/matrix-%23webhippie%3Amatrix.org-7bc9a4.svg)](https://matrix.to/#/#webhippie:matrix.org)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ce7c69786de24badb690a0b271c55663)](https://www.codacy.com/app/webhippie/oauth2-proxy?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=webhippie/oauth2-proxy&amp;utm_campaign=Badge_Grade)
 [![Go Doc](https://godoc.org/github.com/webhippie/oauth2-proxy?status.svg)](http://godoc.org/github.com/webhippie/oauth2-proxy)
 [![Go Report](https://goreportcard.com/badge/github.com/webhippie/oauth2-proxy)](https://goreportcard.com/report/github.com/webhippie/oauth2-proxy)
