@@ -20,4 +20,4 @@ RUN apk add --no-cache ca-certificates mailcap bash
 
 COPY assets /usr/share/oauth2-proxy/
 COPY templates /usr/share/oauth2-proxy/
-COPY dist/binaries/terrastate-*-linux-amd64 /usr/bin/terrastate
+COPY dist/binaries/oauth2-proxy-*-linux-amd64 /usr/bin/oauth2-proxy
